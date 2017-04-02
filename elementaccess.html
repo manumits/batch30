@@ -1,0 +1,28 @@
+<html>
+	<body>
+		<div id="d1" style="width:300px;height:300px;background-color:#8cd88c" onclick="pqr(event)" onmousemove="mm(event,this)" title="hello"> Suchita, Nithanjali, Palvi, Sonal, Satish</div>
+		<button onclick="abc(event)" onmouseover="xyz(event)">Click Me to Change</button>
+		<h1 id="he1"></h1>
+		<h1 id="he2"></h1>
+		<script>
+		var c=true;
+		function abc(a){
+			console.dir(a);
+		}
+		function xyz(a){
+			console.dir(a);
+		}
+		function pqr(w){
+			console.dir(w);
+		}
+		function mm(d,u){
+			u.title=""+d.pageX+","+d.pageY;
+			document.getElementById("he1").innerHTML=d.pageX;
+			document.getElementById("he2").innerHTML=d.pageY;
+			
+		}
+	console.log(c);
+		
+		</script>
+	</body>
+</html>

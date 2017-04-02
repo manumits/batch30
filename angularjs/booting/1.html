@@ -1,0 +1,66 @@
+<html>
+	<head>
+		 <meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+			<style>
+			.carousel-inner > .item > img,
+			.carousel-inner > .item > a > img {
+					width: 70%;
+					margin: auto;
+			}
+			</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	</head>
+	<body>
+	
+		<div ng-app="feedbackapp">
+			<div ng-controller="firstheader" style="border:2px solid">
+				<h1>{{title}}</h1>
+				<form>
+					name:<input type="text" ng-model="tempPerson.name">///////age:<input type="number" ng-model="tempPerson.age">////////profession:<input type="text" ng-model="tempPerson.profession"><button ng-click="insert()">add</button>
+				</form>
+				<table  border="3px">
+					<tr ng-repeat="person in persons">
+						<td>{{person.name}}</td>
+						<td>{{person.age}}</td>
+						<td>{{person.profession}}</td>
+					</tr>
+				</table>
+			</div>
+			<div ng-controller="navbar" style="border:2px solid">
+				<ul>
+					<li ng-repeat="i in links_user"><a href="#">{{i}}</a></li>
+					<li ng-repeat="i in links_registered" ng-hide="!a>=2"><a href="#">{{i}}</a></li>
+					<li ng-repeat="i in links_admin" ng-hide="a>=3"><a href="#">{{i}}</a></li>
+				</ul>
+				<div>
+					<div ng-include="'slider.html'"></div>
+			</div>
+			</div>
+			
+		</div>
+		
+		<script>
+			var x = angular.module("feedbackapp",[]);
+			x.controller("firstheader",function($scope){
+				$scope.title="Manumits";
+				$scope.tempPerson={};
+				$scope.persons=[{"name":"Praveen","age":"33","profession":"teaching"},{"name":"srikan","age":"28","profession":"Administrator"},{"name":"Kalyani","age":"29","profession":"Designer"},{"name":"Manas","age":"4","profession":"playing"}];
+				$scope.insert=function(){
+					$scope.persons.push($scope.tempPerson);
+					$scope.tempPerson={};
+				}
+			});
+			x.controller("navbar",function($scope){
+				$scope.a=3;
+				
+				$scope.links_user=["Home","Services","ContactUs","AboutUs","Gallery","Help","Login","signup"];
+				$scope.links_registered=["dashboard"];
+				$scope.links_admin=["access_permissions"]
+			});
+		</script>
+	</body>
+</html>

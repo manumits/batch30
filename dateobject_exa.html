@@ -1,0 +1,31 @@
+<html>
+
+<body>
+	
+	<script>
+		var cd=new Date();
+		var h=cd.getHours();
+		var m=cd.getMinutes();
+		console.log(""+h+":"+m);
+		if(h>12){
+			h=h-12;
+			console.log(""+h+":"+m+" PM");
+		}
+		else{
+			console.log(""+h+":"+m+" AM");
+		}
+		console.dir(cd);
+		
+		cd.setFullYear("2004","03","29");
+		console.log(cd.getDay());
+		
+		var it=new Date("2009","03","29","10","21","34");
+		
+		var ot=new Date("2009","03","29","15","11","34");
+		var to = (ot.getTime()-it.getTime())/1000;
+		var h = to/3600;
+		var m = to %3600;
+		console.log(parseInt(h));
+	</script>
+</body>
+</html>
