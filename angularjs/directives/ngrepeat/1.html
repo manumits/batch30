@@ -1,0 +1,60 @@
+<html>
+	<head>
+		 <meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+			<style>
+			.carousel-inner > .item > img,
+			.carousel-inner > .item > a > img {
+					width: 70%;
+					margin: auto;
+			}
+			.special1{
+				margin:30px;
+				background-color:#908070;
+				font-size:34px;
+			}
+			.special2{
+				margin:30px;
+				background-color:#708090;
+				font-size:34px;
+			}
+			.special3{
+				margin:30px;
+				background-color:#224455;
+				font-size:34px;
+			}
+			.special4{
+				margin:30px;
+				background-color:#123456;
+				font-size:34px;
+			}
+			</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="demoApp">
+			<div ng-controller="kuchbhiCtrl">
+			<input type="radio"  ng-model="c" value="S">Dark Theme
+			<input type="radio"  ng-model="c" value="L">Lite Theme	
+			{{c}}
+				<table>
+					<tr>
+						<th>SNo.</th>
+						<th>Name</th>
+						<th>Pic</th>
+					</tr>
+					<tr ng-repeat="i in cricketers" ng-class="$odd?combination[0]:combination[1]">
+						<td>{{$index+1}}</td>
+						<td>{{i.details}}</td>
+						<td><img src="{{i.url}}" width="100px" height="100px"></td>
+						<td>{{$even}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>
