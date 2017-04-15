@@ -1,0 +1,33 @@
+<html>
+	<head>
+		 <meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+			<style>
+			.carousel-inner > .item > img,
+			.carousel-inner > .item > a > img {
+					width: 70%;
+					margin: auto;
+			}
+			</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="demoApp">
+			<div ng-controller="navbarCtrl">
+			<input type="radio" ng-model="c" value="1">Grid
+			<input type="radio" ng-model="c" value="2">List
+			<input type="radio" ng-model="c" value="3">Tabular
+			{{d}}
+			<div ng-switch="c">
+				<div ng-switch-when="1"><div ng-include="'grid_template.html'"></div></div>
+				<div ng-switch-when="2"><div ng-include="'list_template.html'"></div></div>
+				<div ng-switch-when="3"><div ng-include="'tabular_template.html'"></div></div>
+			</div>
+			</div>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>

@@ -8,7 +8,5 @@ hand.controller("navbarCtrl",function($scope){
 	document.getElementById("ch").addEventListener("click",function(){
 		$scope.r=Math.random();
 		$scope.$digest();
-	});
-		
-	
+	});	
 });
