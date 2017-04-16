@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp">
+		<div ng-controller="myCtrl">			
+			<p>First name: {{firstname}}</p>			
+			<p>First Name: {{lastname}}</p>
+			<div ng-controller="myCtrl2">
+				<p>First Name: {{firstname}}</p>
+				<p>First Name: {{lastname}}</p>
+			</div>
+			<h1>{{lastname}}</h1>
+		</div>
+		<div ng-controller="newappCtrl">
+			<p>First Name: {{firstname}}</p>
+			<p>First Name: {{lastname}}</p>
+		</div>
+		<div ng-controller="specialappCtrl">
+			<p>First Name: {{firstname}}</p>
+		</div>
+		
+</div>
+
+
+<script src="app.js"></script>
+<script src="newapp.js"></script>
+<script src="abc.js"></script>
+</body>
+</html>

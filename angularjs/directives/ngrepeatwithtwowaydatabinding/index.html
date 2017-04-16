@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<body>
+
+<div ng-app="myApp">
+		<div ng-controller="myCtrl">
+			<input type="checkbox" ng-model="ch">
+			<input type="text" ng-model="l"><button ng-click="addLeader()">add leader</button>
+			<input type="text" ng-model="abc">
+			<br>
+			<br>			
+			<table border="3px" ng-show="ch">
+				<tr><th>SNo.</th><th>Name</th></tr>
+				<tr ng-repeat="x in leaders" ng-class="$even?'special1':'special2'">
+					<td>{{$index}}</td>
+					<td>{{x}}</td>
+				</tr>
+			</table>
+			<table border="3px">
+			<tr ng-repeat="i in heroines">
+				<td>{{i.name}}</td>
+				<td>{{i.age}}</td>
+				<td>{{i.husband}}</td>
+				<td><img src="{{i.image_url}}" width="50px" height="50px"></td>
+			</tr>
+			</table>
+		</div>		
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

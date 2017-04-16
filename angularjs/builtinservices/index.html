@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<body>
+
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<form>
+				name:<input type="text" ng-model="sdata.name"><br>
+				age:<input type="number" ng-model="sdata.age">
+				<button ng-click="avc()">click me</button>
+			</form>
+			<div ng-repeat="i in res_data">
+				<h4>{{i.Description}}</h4>
+				<h4>{{i.trainername}}</h4>
+			</div>	
+			
+		</div>
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('myCtrl', function($scope,$http) {
+				$scope.sdata={};
+				
+				$scope.avc=function(){
+				//$http.post('/someUrl', data, config).then(successCallback, errorCallback);
+					$http.post("http://isolveit.in/praveengclasses/mpa/insert_trainer_details.php",$scope.sdata)
+								.then(function(x){console.dir(x);},function(e){console.dir("dsfsd"+e);});
+				}
+				$scope.d=$http.get("http://isolveit.in/praveengclasses/mpa/trainer_details_json.php").then(function(r){
+					$scope.res_data=r.data;
+					console.dir($scope.res_data);
+				});
+			});
+		</script>
+	</body>
+</html>

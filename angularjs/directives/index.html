@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-sanitize.js"></script>
+<body>
+
+<div ng-app="myApp">
+		<div ng-controller="myCtrl">
+			<h3 ng-bind-html="text1"></h3>
+			<h1 ng-repeat="i in marks">{{i}}</h1>
+			<h1 ng-repeat="i in marks"><span ng-bind="i"></span></h1>			
+			<h1 ng-repeat="i in cricketers">{{i.name}}-{{i.age}}</h1>			
+			<h1 ng-repeat="j in marks">{{$index}}-{{j}}</h1>
+			<table border="3px">
+				<tr><th>SNo.</th><th>Name</th></tr>
+				<tr ng-repeat="x in marks">
+					<td>{{$index+1}}</td>
+					<td>{{x}}</td>
+				</tr>
+			</table>
+		</div>		
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
